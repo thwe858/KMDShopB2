@@ -17,7 +17,7 @@ class Order extends Model
         'qty',
         'payment_slip',
         'status',
-        'address',
+        'note',
         'item_id',
         'payment_id',
         'user_id',
