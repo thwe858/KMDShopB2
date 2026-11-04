@@ -42,8 +42,8 @@
     </div>
     <!-- decription -->
     <div class="mb-3">
-       <label for="" class="form-label">Description</label>
-       <textarea name="decription" class="form-control" id="decription"></textarea>
+       <label for="description" class="form-label">Description</label>
+       <textarea name="description" class="form-control" id="description"></textarea>
     </div>
     <!-- category -->
     <div class="mb-3">

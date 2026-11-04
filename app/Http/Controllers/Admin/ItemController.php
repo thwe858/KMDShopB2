@@ -33,9 +33,16 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        $items=Item::create($request->all);
+        $items=Item::create($request->all());
         $file_name=time().'.'.$request->image->extension();//12345.png
         $upload=$request->image->move(public_path('images/items'),$file_name);
+        if($upload)
+            {
+                $items->image="/images/items/".$file_name;
+            }
+            $items->save();
+            return redirect()->route('backend.items.index');
+        
     }
 
     /**
