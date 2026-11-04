@@ -32,7 +32,10 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $items=Item::create($request->all);
+        $file_name=time().'.'.$request->image->extension();//12345.png
+        $upload=$request->image->move(public_path('images/items'),$file_name);
     }
 
     /**

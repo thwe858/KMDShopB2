@@ -6,7 +6,9 @@
    <h4>Create Item</h4>
   </div>
   <div class="card-body">
-    <div class="mb-3">
+    <form action="{{route('backend.items.store')}}" method="POST" enctype="multipart/form-data">
+      @csrf
+      <div class="mb-3">
        <label for="" class="form-label">Code No</label>
        <input type="text" name="code_no" class="form-control" placeholder="IT-001">
     </div>
@@ -18,7 +20,7 @@
     <!-- Image -->
     <div class="mb-3">
        <label for="" class="form-label">Image</label>
-       <input type="file" name="image" class="form-control">
+       <input type="file" accept="image/*" name="image" class="form-control">
     </div>
     <!-- price -->
      <div class="mb-3">
@@ -32,8 +34,8 @@
     </div>
     <!-- in stock -->
      <div class="mb-3">
-       <label for="" class="form-label">In Stock</label>
-       <select name="in_stock" id="in_stock">
+       <label for="in_stock" class="form-label">In Stock</label>
+       <select name="in_stock" id="in_stock" class="form-select">
         <option value="1" selected>Yes</option>
         <option value="0">No</option>
        </select>
@@ -41,15 +43,22 @@
     <!-- decription -->
     <div class="mb-3">
        <label for="" class="form-label">Description</label>
-       <textarea name="decription" id="decription"></textarea>
+       <textarea name="decription" class="form-control" id="decription"></textarea>
     </div>
     <!-- category -->
     <div class="mb-3">
        <label for="" class="form-label">Category</label>
-       <select name="category_id" id="category_id">
+       <select name="category_id" id="category_id" class="form-select">
          <option value="">Choose Category</option>
+         @foreach($categories as $category)
+         <option value="{{$category->id}}">{{$category->name}}</option>
+         @endforeach
        </select>
     </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary px-4"> Create Item</button>
+    </div>
+    </form>
   </div>
  </div>
 </div>
